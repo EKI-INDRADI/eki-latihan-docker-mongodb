@@ -1,0 +1,24 @@
+docker pull mongo:5.0.5-focal
+
+mkdir -p /home/docker_rnd/mongo_5.0.5_focal && \
+chmod 777 -Rv /home/docker_rnd/mongo_5.0.5_focal
+
+docker container create --name mongo_5.0.5_7000 \
+--restart=always  \
+-it  \
+-p 7000:27017 \
+-v /home/docker_rnd/mongo_5.0.5_focal:/data/db \
+-e MONGO_INITDB_ROOT_USERNAME=root \
+-e MONGO_INITDB_ROOT_PASSWORD=masuk123 \
+mongo:5.0.5-focal
+
+docker container start mongo_5.0.5_7000
+docker container restart mongo_5.0.5_7000
+docker container stop mongo_5.0.5_7000
+docker container inspect mongo_5.0.5_7000
+
+mongodb://root:masuk123@127.0.0.1:7000
+
+recomended tools : https://nosqlbooster.com/
+
+
