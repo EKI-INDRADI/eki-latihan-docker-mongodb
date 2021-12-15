@@ -3,6 +3,10 @@ docker pull mongo:5.0.5-focal
 mkdir -p /home/docker_rnd/mongo_5.0.5_focal && \
 chmod 777 -Rv /home/docker_rnd/mongo_5.0.5_focal
 
+
+
+mkdir -p /home/docker_rnd/mongo_5.0.5_focal 
+
 docker container create --name mongo_5.0.5_7000 \
 --restart=always  \
 -it  \
@@ -17,8 +21,31 @@ docker container restart mongo_5.0.5_7000
 docker container stop mongo_5.0.5_7000
 docker container inspect mongo_5.0.5_7000
 
-mongodb://root:masuk123@127.0.0.1:7000
+mongodb://root:masuk123@127.0.0.1:7000?authSource=admin
 
 recomended tools : https://nosqlbooster.com/
+
+
+
+CONTAINER :
+
+docker exec -u 0 -it mongo_5.0.5_7000 bash
+
+
+CLI :
+mongod  
+mongod --version
+mongo / mongosh
+mongosh admin -u 'root' -p 'masuk123'
+
+
+show dbs
+use MY_DB
+db.MY_DB_COLLECTION.insertOne({ data : "testing" })
+show dbs
+
+
+use MY_DB
+show collections
 
 
