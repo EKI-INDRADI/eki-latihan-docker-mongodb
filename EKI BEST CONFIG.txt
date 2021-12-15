@@ -20,6 +20,7 @@ docker container start mongo_5.0.5_7000
 docker container restart mongo_5.0.5_7000
 docker container stop mongo_5.0.5_7000
 docker container inspect mongo_5.0.5_7000
+docker container logs mongo_5.0.5_7000
 
 mongodb://root:masuk123@127.0.0.1:7000?authSource=admin
 
